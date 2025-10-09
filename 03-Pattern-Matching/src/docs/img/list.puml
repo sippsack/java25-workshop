@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam class {
+BackgroundColor<<New>> Lightgreen
+'BorderColor<<New>> Tomato
+}
+
+skinparam linetype polyline
+'skinparam linetype ortho
+
+
+interface List<T> <<sealed>>
+
+class Nil<T>
+class Cons<T> {
+    T value
+    LinkedList<T> tail
+}
+
+List <|.. Nil
+List <|.. Cons
+
+@enduml
+
