@@ -12,6 +12,7 @@
         <module>02-Virtual-Threads</module>
         <module>03-Pattern-Matching</module>
         <module>04-Stream-Gatherers</module>
+        <module>05-Compact-Object-Headers</module>
     </modules>
 
     <name>Java 25 Update Workshop Parent</name>
