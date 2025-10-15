@@ -13,7 +13,7 @@ void main() {
       // = .gather(Gatherers.windowFixed(3))
       .toList();
 
-  System.out.println(list);
+  IO.println(list);
 }
 
 private static <String> Gatherer<String, List<String>, List<String>> windowFixed(int windowSize) {
@@ -33,10 +33,10 @@ private static <String> Gatherer<String, List<String>, List<String>> windowFixed
 
   BiConsumer<List<String>, Gatherer.Downstream<? super List<String>>> finisher =
       (state, downstream) -> {
-    if (!state.isEmpty()) {
-      downstream.push(List.copyOf(state));
-    }
-  };
+        if (!state.isEmpty()) {
+          downstream.push(List.copyOf(state));
+        }
+      };
 
   return Gatherer.ofSequential(initializer, integrator, finisher);
 }

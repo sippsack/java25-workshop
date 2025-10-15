@@ -6,5 +6,5 @@ void main() {
       .gather(Gatherers.windowFixed(3))
       .toList();
 
-  System.out.println("list = " + list);
+  IO.println("list = " + list);
 }

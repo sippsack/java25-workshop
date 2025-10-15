@@ -13,7 +13,7 @@ void main() {
       // = .gather(Gatherers.windowFixed(3))
       .toList();
 
-  System.out.println(list);
+  IO.println(list);
 }
 
 private static <T> Gatherer<T, ?, List<T>> windowFixed(int windowSize) {

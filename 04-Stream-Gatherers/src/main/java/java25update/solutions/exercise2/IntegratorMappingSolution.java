@@ -12,7 +12,7 @@ void main() {
       // = .map(String::length)
       .toList();
 
-  System.out.println(list);
+  IO.println(list);
 }
 
 private static <T, R> Gatherer<T, Void, R> mapping(Function<T, R> mapper) {

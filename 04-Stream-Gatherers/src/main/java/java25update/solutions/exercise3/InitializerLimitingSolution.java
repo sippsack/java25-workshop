@@ -11,7 +11,7 @@ void main() {
       .gather(limiting(3))
       .toList();
 
-  System.out.println(list);
+  IO.println(list);
 }
 
 private static <T> Gatherer<T, AtomicInteger, T> limiting(int maxSize) {

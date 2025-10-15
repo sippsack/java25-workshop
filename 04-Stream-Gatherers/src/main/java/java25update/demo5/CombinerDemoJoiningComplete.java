@@ -5,7 +5,7 @@ void main() {
       .gather(joining())
       .findFirst();
 
-  System.out.println(first);
+  IO.println(first);
 }
 
 private static Gatherer<String, StringBuilder, String> joining() {

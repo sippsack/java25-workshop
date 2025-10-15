@@ -14,7 +14,7 @@ void main() {
 
   Gatherer.Integrator<Map<Character, List<String>>, String, List<String>> integrator =
       Gatherer.Integrator.ofGreedy((state, element, downstream) -> {
-        Character classificationKey =  classificationFunction.apply(element);
+        Character classificationKey = classificationFunction.apply(element);
         state.computeIfAbsent(classificationKey, _ -> new ArrayList<>()).add(element);
         return true;
       });
@@ -30,5 +30,5 @@ void main() {
       .gather(gatherer)
       .toList();
 
-  System.out.println(list);
+  IO.println(list);
 }

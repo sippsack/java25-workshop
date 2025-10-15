@@ -6,18 +6,19 @@ void main() {
       .gather(summing())
       .findFirst();
 
-  System.out.println("first = " + first);
+  IO.println("first = " + first);
 
 }
 
 private Gatherer<Integer, ?, Integer> summing() {
-  class Adder { int sum;
+  class Adder {
+    int sum;
 
-    public Adder(int sum) {
+    private Adder(int sum) {
       this.sum = sum;
     }
 
-    public Adder() {
+    private Adder() {
       this(0);
     }
   }
@@ -37,5 +38,5 @@ private Gatherer<Integer, ?, Integer> summing() {
   BiConsumer<Adder, Gatherer.Downstream<? super Integer>> finisher =
       (state, downstream) -> downstream.push(state.sum);
 
-  return Gatherer.<Integer, Adder, Integer>of(initializer, integrator, combiner, finisher);
+  return Gatherer.of(initializer, integrator, combiner, finisher);
 }

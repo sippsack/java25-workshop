@@ -12,10 +12,11 @@ void main() {
       .gather(groupingBy(word -> word.charAt(0)))
       .toList();
 
-  System.out.println(list);
+  IO.println(list);
 }
 
-private static Gatherer<String, Map<Character, List<String>>, List<String>> groupingBy(Function<String, Character> classifier) {
+private static Gatherer<String, Map<Character, List<String>>, List<String>> groupingBy(
+    Function<String, Character> classifier) {
   Supplier<Map<Character, List<String>>> initializer = TreeMap::new;
 
   Gatherer.Integrator<Map<Character, List<String>>, String, List<String>> integrator =

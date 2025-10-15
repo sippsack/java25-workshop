@@ -26,10 +26,10 @@ void main() {
 
   BiConsumer<List<String>, Gatherer.Downstream<? super List<String>>> finisher =
       (state, downstream) -> {
-    if (!state.isEmpty()) {
-      downstream.push(List.copyOf(state));
-    }
-  };
+        if (!state.isEmpty()) {
+          downstream.push(List.copyOf(state));
+        }
+      };
 
   Gatherer<String, List<String>, List<String>> gatherer =
       Gatherer.ofSequential(initializer, integrator, finisher);
@@ -38,5 +38,5 @@ void main() {
       .gather(gatherer)
       .toList();
 
-  System.out.println(list);
+  IO.println(list);
 }

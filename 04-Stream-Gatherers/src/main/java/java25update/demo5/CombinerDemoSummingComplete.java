@@ -1,40 +1,40 @@
 void main() {
-    List<String> words = List.of("the", "be", "two", "of", "and", "a", "in", "that");
+  List<String> words = List.of("the", "be", "two", "of", "and", "a", "in", "that");
 
-    Optional<Integer> first = words.parallelStream()
-            .map(String::length)
-            .gather(summing())
-            .findFirst();
+  Optional<Integer> first = words.parallelStream()
+      .map(String::length)
+      .gather(summing())
+      .findFirst();
 
-    System.out.println("first = " + first);
+  IO.println("first = " + first);
 }
 
 private Gatherer<Integer, ?, Integer> summing() {
-    class Adder {
-        int sum;
+  class Adder {
+    int sum;
 
-        Adder() {
-            this(0);
-        }
-
-        Adder(int sum) {
-            this.sum = sum;
-        }
+    private Adder() {
+      this(0);
     }
 
-    Supplier<Adder> initializer = Adder::new;
+    private Adder(int sum) {
+      this.sum = sum;
+    }
+  }
 
-    Gatherer.Integrator<Adder, Integer, Integer> integrator =
-            Gatherer.Integrator.ofGreedy((state, element, _) -> {
-                state.sum += element;
-                return true;
-            });
+  Supplier<Adder> initializer = Adder::new;
 
-    BinaryOperator<Adder> combiner =
-            (adder1, adder2) -> new Adder(adder1.sum + adder2.sum);
+  Gatherer.Integrator<Adder, Integer, Integer> integrator =
+      Gatherer.Integrator.ofGreedy((state, element, _) -> {
+        state.sum += element;
+        return true;
+      });
 
-    BiConsumer<Adder, Gatherer.Downstream<? super Integer>> finisher =
-            (state, downstream) -> downstream.push(state.sum);
+  BinaryOperator<Adder> combiner =
+      (adder1, adder2) -> new Adder(adder1.sum + adder2.sum);
 
-    return Gatherer.of(initializer, integrator, combiner, finisher);
+  BiConsumer<Adder, Gatherer.Downstream<? super Integer>> finisher =
+      (state, downstream) -> downstream.push(state.sum);
+
+  return Gatherer.of(initializer, integrator, combiner, finisher);
 }

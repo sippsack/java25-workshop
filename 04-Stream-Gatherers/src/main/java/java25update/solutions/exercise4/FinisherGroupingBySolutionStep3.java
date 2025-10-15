@@ -12,7 +12,7 @@ void main() {
       .gather(groupingBy(word -> word.charAt(0)))
       .toList();
 
-  System.out.println(list);
+  IO.println(list);
 }
 
 private static <T, K> Gatherer<T, Map<K, List<T>>, List<T>> groupingBy(Function<T, K> classifier) {

@@ -12,7 +12,7 @@ void main() {
       // = . filter(string -> string.length() >= 3)
       .toList();
 
-  System.out.println(list);
+  IO.println(list);
 }
 
 private static <T> Gatherer<T, Void, T> filtering(Predicate<T> predicate) {
