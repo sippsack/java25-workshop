@@ -9,7 +9,7 @@ public class HowManyPlatformThreads {
 
   // start with -XX:NativeMemoryTracking=summary
   // jcmd <pid> VM.native_memory
-  // jmap -histo <pid>
+  // jmap -histo:live <pid>
 
   // Safe limit on Windows 11 with 64 GB: 20,000
   private static final int NUMBER_OF_THREADS = 20_000;

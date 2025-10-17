@@ -7,7 +7,7 @@ public class HowManyVirtualThreads {
 
   // start with -XX:NativeMemoryTracking=summary
   // jcmd <pid> VM.native_memory
-  // jmap -histo <pid>
+  // jmap -histo:live <pid>
 
   private static final int NUMBER_OF_VIRTUAL_THREADS = 1_000_000_000;
   private static final int PRINT_STEP = Math.min(NUMBER_OF_VIRTUAL_THREADS / 10, 100_000);

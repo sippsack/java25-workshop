@@ -21,17 +21,4 @@ public class ProductApp {
   public static void main(String[] args) {
     SpringApplication.run(ProductApp.class, args);
   }
-
-  @Bean
-  public AsyncTaskExecutor applicationTaskExecutor() {
-    return new TaskExecutorAdapter(Executors.newVirtualThreadPerTaskExecutor());
-  }
-
-  @Bean
-  public TomcatProtocolHandlerCustomizer<?> protocolHandlerVirtualThreadExecutorCustomizer() {
-    return protocolHandler -> {
-      protocolHandler.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
-    };
-  }
-
 }

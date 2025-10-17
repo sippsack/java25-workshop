@@ -10,7 +10,11 @@ public class SpringWithVirtualThreads {
     SpringApplication.run(SpringWithVirtualThreads.class, args);
   }
 
-  // Task: Enable virtual threads by adding this application property:
-  //       `spring.threads.virtual.enabled=true`
+  // Tasks: Start the application.
+  //        Call http://localhost:8080/blocking-op multiple times (via `test.http` or `curl` or the web browser).
+  //        Observe which / how many threads handle the requests.
+  //
+  //        Then enable virtual threads by adding this application property: `spring.threads.virtual.enabled=true`,
+  //        start the application again, call the endpoints again, observe the handling threads again.
 
 }

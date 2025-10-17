@@ -4,6 +4,12 @@ void main() {
   //       Create an executor with `Executors.newVirtualThreadPerTaskExecutor()`.
   //       Submit the tasks to the executor instead of starting them with `Thread.startVirtualThread`.
   //       Wrap the whole thing in a try-with-resources block.
+  //
+  // Pattern:
+  //
+  // try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+  //   executor.submit(() -> { ... });
+  // }
 
   try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
     for (int j = 0; j < 5; j++) {
