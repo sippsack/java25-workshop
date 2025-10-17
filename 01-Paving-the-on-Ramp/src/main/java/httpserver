@@ -1,0 +1,16 @@
+#!/usr/bin/java --source 25 --add-modules jdk.httpserver
+// Shebang: Pfad zu java Executable anpassen
+
+import module java.base;
+import module jdk.httpserver;
+
+void main() {
+    startHttpServer();
+}
+
+void startHttpServer() {
+    HttpServer server = SimpleFileServer.createFileServer(
+            new InetSocketAddress(8888), Path.of(".").toAbsolutePath(), SimpleFileServer.OutputLevel.INFO);
+    server.start();
+    IO.println("Open http://localhost:8888 in your browser ...");
+}
