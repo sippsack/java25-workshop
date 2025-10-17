@@ -1,1 +1,50 @@
 == Paving the On-Ramp
+
+1. Compact Source File
+
+Legt im Ordner `src/main/java` eine Datei `HelloWorld.java` an:
+
+```java
+void main() {
+    IO.println("Hello, World!");
+}
+```
+
+Startet die Anwendung aus der IDE.
+
+Startet die Anwendung von der Kommandozeile mit:
+
+> java HelloWorld.java
+
+Erweitert die Datei um eine zweite Main-Methode:
+
+```java
+void main(String[] args) {
+    IO.println(...);
+}
+```
+
+Diesmal soll ein beim Start übergebener Kommandozeilenparameter als Name in "Hello, Name" ausgegeben werden.
+
+Schaut Euch die Klasse `MyHttpServer` an und führt sie in der IDE aus.
+
+Ruft dann im Browser die URL http://localhost:8888 auf.
+
+[CAUTION]
+Der folgende Teil funktioniert ggf. nur unter Linux oder MacOS. Wenn ihr Windows verwendet, dann probiert es in der WSL 2 oder der Git-Bash.
+
+Kopiert die Datei `MyHttpServer.java` und nennt die Kopie nur `httpserver` (ohne Dateiendung). Macht die neue Datei ausführbar:
+
+```bash
+chmod +x ./httpserver
+```
+
+Startet den HTTP Server mit
+
+```bash
+./httpserver
+```
+
+Zusatzaufgabe:
+
+Versucht den Port oder den Dateipfad als Argument beim Start des Java-Skripts mitzugeben.
